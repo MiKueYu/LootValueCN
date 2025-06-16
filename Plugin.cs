@@ -593,11 +593,12 @@ The third is marked as the ultimate color. Anything over 10000 rubles would be w
 					double totalTraderPrice = bestTraderOffer.Price;
 					traderPricePerSlot = (int)Math.Round(totalTraderPrice / slots);
 
-					SetText(traderPricePerSlot, fleaPricePerSlot, totalTraderPrice, slots, ref text, bestTraderOffer.TraderName);
-				}
+                    string traderDisplayName = $"{bestTraderOffer.TraderName} 单格价格";
+                    SetText(traderPricePerSlot, fleaPricePerSlot, totalTraderPrice, slots, ref text, traderDisplayName);
+                }
 
 				if (isFleaEligible)
-					SetText(fleaPricePerSlot, traderPricePerSlot, lowestFleaOffer, slots, ref text, "Flea");
+					SetText(fleaPricePerSlot, traderPricePerSlot, lowestFleaOffer, slots, ref text, "跳蚤市场 单格价格");
 			}
 		}
 
@@ -620,7 +621,7 @@ The third is marked as the ultimate color. Anything over 10000 rubles would be w
 				text += $"<br>{highlightText}: <color={perSlotColor}>{valuePerSlotA.FormatNumber()}</color>";
 
 				if (slots > 1)
-					text += $" Total: {totalValue.FormatNumber()}";
+					text += $" 总价: {totalValue.FormatNumber()}";
 			}
 		}
 	}
